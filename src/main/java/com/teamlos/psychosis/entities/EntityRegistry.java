@@ -18,6 +18,6 @@ public class EntityRegistry
 			.build(new ResourceLocation(PsychosisMod.MODID, "joghurt").toString()));
 	
 	public static final RegistryObject<EntityType<Angel>> ANGEL = ENTITIES.register("angel", ()->EntityType.Builder.<Angel>of(Angel::new, MobCategory.MONSTER)
-			.sized(2.5f, 0.7f)
+			.sized(1f, 1.7f)
 			.build(new ResourceLocation(PsychosisMod.MODID, "angel").toString()));
 }

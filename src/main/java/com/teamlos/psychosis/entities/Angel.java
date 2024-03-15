@@ -1,21 +1,18 @@
 package com.teamlos.psychosis.entities;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.PanicGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.animal.Rabbit;
-import net.minecraft.world.entity.monster.Ghast;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 
@@ -25,7 +22,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
  * - Fast running (Speed of a rabbit)
  * - Can be bread with buckets of milk
  */
-public class Angel extends Ghast
+public class Angel extends WitherBoss
 {
 	public final AnimationState idleAnimationState = new AnimationState();
 	
@@ -44,12 +41,32 @@ public class Angel extends Ghast
 	
 	public static AttributeSupplier.Builder createMobAttributes()
 	{
-		return Rabbit.createLivingAttributes().add(Attributes.FOLLOW_RANGE, 16.0D).add(Attributes.ATTACK_KNOCKBACK);
+		return WitherBoss.createLivingAttributes();
 	}
 	
 	protected PathNavigation createNavigation(Level level)
 	{
 		return new FlyingPathNavigation(this, level);
+	}
+	
+	protected SoundEvent getAmbientSound()
+	{
+		return SoundEvents.WITHER_AMBIENT;
+	}
+
+	protected SoundEvent getHurtSound(DamageSource p_32750_)
+	{
+		return SoundEvents.WITHER_HURT;
+	}
+
+	protected SoundEvent getDeathSound()
+	{
+		return SoundEvents.WITHER_DEATH;
+	}
+	
+	protected float getSoundVolume()
+	{
+		return 1.0F;
 	}
 	
 	@Override
@@ -66,8 +83,7 @@ public class Angel extends Ghast
 	@Override
 	protected void registerGoals()
 	{
-		this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 10.0F));
-	    this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		super.registerGoals();
 	}
 	
 	public static boolean canSpawn(EntityType<Angel> entityType, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random)
