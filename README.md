@@ -1,2 +1,2 @@
-# MCPsychosisMod
-What even is this
+# MC Psychosis Mod
+What even is this?
