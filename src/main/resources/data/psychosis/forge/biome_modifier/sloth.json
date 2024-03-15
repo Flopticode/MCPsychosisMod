@@ -1,0 +1,10 @@
+{
+	"type": "forge:add_spanws",
+	"biomes": "minecraft:",
+	"spawners": {
+		"type": "psychosismod:sloth",
+		"weight": 75,
+		"minCount": 1,
+		"maxCount": 1
+	}
+}

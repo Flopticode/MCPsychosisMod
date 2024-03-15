@@ -20,4 +20,8 @@ public class EntityRegistry
 	public static final RegistryObject<EntityType<Angel>> ANGEL = ENTITIES.register("angel", ()->EntityType.Builder.<Angel>of(Angel::new, MobCategory.MONSTER)
 			.sized(1f, 1.7f)
 			.build(new ResourceLocation(PsychosisMod.MODID, "angel").toString()));
+	
+	public static final RegistryObject<EntityType<Sloth>> SLOTH = ENTITIES.register("sloth", ()->EntityType.Builder.<Sloth>of(Sloth::new, MobCategory.CREATURE)
+			.sized(1f, 1f)
+			.build(new ResourceLocation(PsychosisMod.MODID, "sloth").toString()));
 }

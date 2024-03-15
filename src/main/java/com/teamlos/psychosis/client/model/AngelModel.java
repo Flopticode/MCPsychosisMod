@@ -74,7 +74,7 @@ public class AngelModel<T extends Angel> extends HierarchicalModel<Angel> {
 		animate(entity.idleAnimationState, AngelAnimation.IDLE, ageInTicks);
 		
 		if(!entity.isInWaterOrBubble())
-			animateWalk(AngelAnimation.ANGEL_FLY, limbSwing, 1f, 1f, 1f);
+			animateWalk(AngelAnimation.ANGEL_FLY, limbSwing, limbSwingAmount, ageInTicks, 1f);
 	}
 
 	@Override

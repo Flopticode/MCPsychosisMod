@@ -3,8 +3,10 @@ package com.teamlos.psychosis.events;
 import com.teamlos.psychosis.PsychosisMod;
 import com.teamlos.psychosis.client.model.AngelModel;
 import com.teamlos.psychosis.client.model.JoghurtModel;
+import com.teamlos.psychosis.client.model.SlothModel;
 import com.teamlos.psychosis.client.renderer.AngelRenderer;
 import com.teamlos.psychosis.client.renderer.JoghurtRenderer;
+import com.teamlos.psychosis.client.renderer.SlothRenderer;
 import com.teamlos.psychosis.entities.EntityRegistry;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,6 +22,7 @@ public class ClientModEvents
 	{
 		event.registerEntityRenderer(EntityRegistry.JOGHURT.get(), JoghurtRenderer::new);
 		event.registerEntityRenderer(EntityRegistry.ANGEL.get(), AngelRenderer::new);
+		event.registerEntityRenderer(EntityRegistry.SLOTH.get(), SlothRenderer::new);
 	}
 	
 	@SubscribeEvent
@@ -27,5 +30,6 @@ public class ClientModEvents
 	{
 		event.registerLayerDefinition(JoghurtModel.LAYER_LOCATION, JoghurtModel::createBodyLayer);
 		event.registerLayerDefinition(AngelModel.LAYER_LOCATION, AngelModel::createBodyLayer);
+		event.registerLayerDefinition(SlothModel.LAYER_LOCATION, SlothModel::createBodyLayer);
 	}
 }
