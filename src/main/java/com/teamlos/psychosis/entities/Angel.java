@@ -16,19 +16,13 @@ import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 
-/**
- * Behavior:
- * - Aggressive
- * - Fast running (Speed of a rabbit)
- * - Can be bread with buckets of milk
- */
 public class Angel extends WitherBoss
 {
 	public final AnimationState idleAnimationState = new AnimationState();
 	
-	public Angel(EntityType<Angel> joghurtType, Level level)
+	public Angel(EntityType<Angel> angelType, Level level)
 	{
-		super(joghurtType, level);
+		super(angelType, level);
 	}
 	public Angel(Level level, double x, double y, double z)
 	{
