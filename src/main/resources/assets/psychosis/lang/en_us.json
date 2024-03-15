@@ -2,5 +2,6 @@
 	"entity.psychosis.joghurt": "Joghurt",
 	"entity.psychosis.angel": "Biblically Accurate Angel",
 	"block.psychosis.pizza_box_full": "Full Pizza Box",
-	"block.psychosis.pizza_box_empty": "Empty Pizza Box"
+	"block.psychosis.pizza_box_empty": "Empty Pizza Box",
+	"item.psychosis.gigabyte_gpu": "Gigabyte GPU"
 }
