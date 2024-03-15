@@ -1,0 +1,10 @@
+{
+	"type": "forge:add_spanws",
+	"biomes": "#minecraft:is_overworld",
+	"spawners": {
+		"type": "psychosismod:joghurt",
+		"weight": 75,
+		"minCount": 3,
+		"maxCount": 4
+	}
+}
